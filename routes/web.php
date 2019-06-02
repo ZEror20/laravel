@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('loop', 'ViewsController@loop');
+Route::get('foreach/{limit}', 'ViewsController@foreach');
+Route::get('if/{number}', 'ViewsController@if');
+Route::get('each', 'ViewsController@each');
+Route::get('include', 'ViewsController@include');
+
 Route::get('tasks/create', 'Test\TasksController@create');
 Route::post('tasks', 'Test\TasksController@store');
 
