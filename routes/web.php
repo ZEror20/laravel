@@ -21,6 +21,10 @@ Route::get('if/{number}', 'ViewsController@if');
 Route::get('each', 'ViewsController@each');
 Route::get('include', 'ViewsController@include');
 
+Route::get('pagination', function() {
+  return view('posts.index', ['posts' => DB::table('posts')->paginate(5)]);
+});
+
 Route::get('tasks/create', 'Test\TasksController@create');
 Route::post('tasks', 'Test\TasksController@store');
 
