@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,14 @@ Route::get('foreach/{limit}', 'ViewsController@foreach');
 Route::get('if/{number}', 'ViewsController@if');
 Route::get('each', 'ViewsController@each');
 Route::get('include', 'ViewsController@include');
+
+Route::post('request', function(Request $request) {
+  return view('request')->with('request', $request);
+});
+
+Route::get('form', function() {
+  return view('form');
+});
 
 Route::get('pagination', function() {
   return view('posts.index', ['posts' => DB::table('posts')->paginate(5)]);
